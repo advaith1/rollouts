@@ -16,7 +16,7 @@ export default function Experiment({exp}: {exp: Exp}) {
 					<hr style={{border: 0, height: '1px', background: '#2f3136'}}/>
 				</>}
 				{population[0].map(bucket => <div key={bucket[0]}>
-					{exp.data.description[bucket[0]] ?? 'None'}:{' '}
+					{exp.data.description.find(d => d.startsWith(`Treatment ${bucket[0]}`)) ?? 'None'}:{' '}
 						{bucket[1].reduce((total, range) => total + range.e - range.s, 0)/100}%
 						({bucket[1].map(range => `${range.s} - ${range.e}`).join(', ')})
 				</div>)}
@@ -26,7 +26,7 @@ export default function Experiment({exp}: {exp: Exp}) {
 			title: exp.data.title,
 			html: <>{exp.data.buckets.map(b => 
 				<div key={b}>
-					<p style={{marginBottom: '.5rem'}}>{exp.data.description[b]}</p>
+					<p style={{marginBottom: '.5rem'}}>{exp.data.description.find(d => d.startsWith(`Treatment ${b}`))}</p>
 					{exp.rollout[4].find(r => r.b === b) && <details style={{fontSize: '.9rem'}}>
 						<summary style={{cursor: 'pointer'}}>{exp.rollout[4].find(r => r.b === b).k.length} Override{exp.rollout[4].find(r => r.b === b).k.length === 1 ? '' : 's'}</summary>
 						{exp.rollout[4].find(r => r.b === b).k.map(id => <p key={id} style={{margin: '.25rem 0 .25rem .4rem'}}>{id}</p>)}
