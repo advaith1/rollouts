@@ -72,7 +72,7 @@ export default function Experiment({exp}: {exp: Exp}) {
 }
 
 const parseFilter = (f: Filter) => {
-	if (f[0] === FilterType.Feature) return `Server has feature${f[1][0][1].length > 1 ? 's' : ''} ${list.format(f[1][0][1])}`
+	if (f[0] === FilterType.Feature) return `Server has feature ${orList.format(f[1][0][1])}`
 	if (f[0] === FilterType.ID) return `Server ID is in range ${f[1][0][1] ?? 0} - ${f[1][1][1]}`
 	if (f[0] === FilterType.MemberCount) return `Server member count is ${f[1][1][1] ? `in range ${f[1][0][1] ?? 0} - ${f[1][1][1]}` : `${f[1][0][1]}+`}`
 	if (f[0] === FilterType.HubType) return `Server has hub type ${orList.format(f[1][0][1].map(t => t.toString()))}`
