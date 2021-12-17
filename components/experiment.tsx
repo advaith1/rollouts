@@ -15,7 +15,6 @@ export default function Experiment({exp}: {exp: Exp}) {
 				let popTotal = 0
 				return <div key={i} style={{background: '#202225', padding: '.5rem', marginBottom: '.25rem', borderRadius: '2px'}}>
 					{population[1][0] && <>
-					{console.log(exp.data.id, exp, population[1].map(f => parseFilter(f)))}
 						<p style={{fontSize: '.9rem', margin: 0}}>Filter: {andList.format(population[1].map(f => parseFilter(f)))}</p>
 						<hr style={{border: 0, height: '1px', background: '#2f3136'}}/>
 					</>}
