@@ -31,11 +31,13 @@ export interface Experiment {
 export enum FilterType {
 	Feature = 1604612045,
 	ID = 2404720969,
-	MemberCount = 2918402255
+	MemberCount = 2918402255,
+	HubType = 4148745523
 }
 
 type FeatureFilter = [FilterType.Feature, [[number, string[]]]]
 type IDFilter = [FilterType.ID, [[number, number | null], [number, number]]]
 type MemberCountFilter = [FilterType.MemberCount, [[number, number | null], [number, number]]]
+type HubTypeFilter = [FilterType.HubType, [[number, number[]]]]
 
-export type Filter = FeatureFilter | IDFilter | MemberCountFilter
+export type Filter = FeatureFilter | IDFilter | MemberCountFilter | HubTypeFilter

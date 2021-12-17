@@ -3,7 +3,8 @@ import withReactContent from 'sweetalert2-react-content'
 import { Experiment as Exp, Filter, FilterType } from '../experiment'
 
 const swal = withReactContent(Swal)
-const list = new Intl.ListFormat()
+const andList = new Intl.ListFormat()
+const orList = new Intl.ListFormat('en', { type: 'disjunction' })
 
 export default function Experiment({exp}: {exp: Exp}) {
 	return <div style={{background: '#2f3136', marginBottom: '.5rem', textAlign: 'left', width: '800px', padding: '1rem', borderRadius: '3px', maxWidth: '100%'}} key={exp.data.id}>
@@ -14,7 +15,8 @@ export default function Experiment({exp}: {exp: Exp}) {
 				let popTotal = 0
 				return <div key={i} style={{background: '#202225', padding: '.5rem', marginBottom: '.25rem', borderRadius: '2px'}}>
 					{population[1][0] && <>
-						<p style={{fontSize: '.9rem', margin: 0}}>Filter: {list.format(population[1].map(f => parseFilter(f)))}</p>
+					{console.log(exp.data.id, exp, population[1].map(f => parseFilter(f)))}
+						<p style={{fontSize: '.9rem', margin: 0}}>Filter: {andList.format(population[1].map(f => parseFilter(f)))}</p>
 						<hr style={{border: 0, height: '1px', background: '#2f3136'}}/>
 					</>}
 					{population[0].map(bucket => <div key={bucket[0]}>
@@ -73,5 +75,6 @@ const parseFilter = (f: Filter) => {
 	if (f[0] === FilterType.Feature) return `Server has feature${f[1][0][1].length > 1 ? 's' : ''} ${list.format(f[1][0][1])}`
 	if (f[0] === FilterType.ID) return `Server ID is in range ${f[1][0][1] ?? 0} - ${f[1][1][1]}`
 	if (f[0] === FilterType.MemberCount) return `Server member count is ${f[1][1][1] ? `in range ${f[1][0][1] ?? 0} - ${f[1][1][1]}` : `${f[1][0][1]}+`}`
+	if (f[0] === FilterType.HubType) return `Server has hub type ${orList.format(f[1][0][1].map(t => t.toString()))}`
 	return `Unknown filter type ${f[0]}`
 }
