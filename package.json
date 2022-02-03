@@ -5,15 +5,16 @@
     "build": "next build && next export"
   },
   "dependencies": {
-    "next": "^11.0.0",
+    "next": "^12.0.10",
     "react": "17.0.2",
     "react-dom": "17.0.2",
-    "sweetalert2": "^11.1.2",
-    "sweetalert2-react-content": "^4.1.1",
-    "swr": "^0.5.6"
+    "sweetalert2": "^11.3.10",
+    "sweetalert2-react-content": "^4.2.0",
+    "swr": "^1.2.1"
   },
   "devDependencies": {
-    "@types/react": "^17.0.15",
-    "typescript": "^4.3.5"
+    "@types/node": "^16.11.22",
+    "@types/react": "^17.0.38",
+    "typescript": "^4.5.5"
   }
 }
