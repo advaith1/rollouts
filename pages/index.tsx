@@ -91,6 +91,7 @@ export default function Home() {
 						sans-serif;
 					background: #36393f;
 					color: white;
+					scroll-behavior: smooth;
 				}
 
 				.swal2-title, .swal2-html-container {

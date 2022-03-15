@@ -7,8 +7,10 @@ const andList = new Intl.ListFormat()
 const orList = new Intl.ListFormat('en', { type: 'disjunction' })
 
 export default function Experiment({exp}: {exp: Exp}) {
-	return <div style={{background: '#2f3136', marginBottom: '.5rem', textAlign: 'left', width: '800px', padding: '1rem', borderRadius: '3px', maxWidth: '100%'}} key={exp.data.id}>
-		<h2 style={{fontSize: '1.5rem', marginTop: '5px', marginBottom: '5px'}}>{exp.data.title}</h2>
+	return <div style={{background: '#2f3136', marginBottom: '.5rem', textAlign: 'left', width: '800px', padding: '1rem', borderRadius: '3px', maxWidth: '100%'}} key={exp.data.id} id={exp.data.id}>
+		<h2 style={{fontSize: '1.5rem', marginTop: '5px', marginBottom: '5px'}}>
+			<a href={`#${exp.data.id}`} className="name-link">{exp.data.title}</a>
+		</h2>
 		<p style={{fontSize: '.9rem'}}>{exp.data.id}</p>
 		<div>
 			{exp.rollout[3].map((population, i) => {
@@ -48,6 +50,15 @@ export default function Experiment({exp}: {exp: Exp}) {
 		})}>Experiment Details</button>
 
 		<style jsx>{`
+			.name-link {
+				color: white;
+				text-decoration: none;
+			}
+
+			.name-link:hover {
+				text-decoration: underline;
+			}
+
 			button {   
 				background: #5865f2;
 				border: 0;
