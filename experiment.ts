@@ -9,24 +9,27 @@ export interface Experiment {
 	}
 	rollout: [
 		number, // hash
-		null,
-		number,
-		[ // populations
-			[
-				number, //bucket
-				{ // rollout
-					/** start */ s: number,
-					/** end */   e: number
-				}[]
-			][],
-			Filter[]
-		][],
+		string | null, // hash key
+		number, // revision
+		Population[], // populations
 		{ // overrides
 			/** bucket */     b: number,
 			/** server IDs */ k: string[]
-		}[]
+		}[],
+		[Population[]] // overrides formatted
 	]
 }
+
+export type Population = [
+	[
+		number, //bucket
+		{ // rollout
+			/** start */ s: number,
+			/** end */   e: number
+		}[]
+	][],
+	Filter[]
+]
 
 export enum FilterType {
 	Feature = 1604612045,
