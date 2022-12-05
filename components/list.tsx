@@ -5,7 +5,7 @@ import Experiment from './experiment'
 import Loading from './loading'
 
 export default function List() {
-	const { data, error } = useSWR<Exp[]>('https://rollouts.advaith.workers.dev', input => fetch(input).then(res => res.json()))
+	const { data, error } = useSWR<Exp[]>('https://api.rollouts.advaith.io', input => fetch(input).then(res => res.json()))
 
 	useEffect(() => document.getElementById(location.hash.substring(1))?.scrollIntoView(), [data])
 
