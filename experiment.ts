@@ -37,7 +37,7 @@ export enum FilterType {
 	MemberCount = 2918402255,
 	ID = 3013771838,
 	HubType = 4148745523,
-	VanityURL = 188952590, // format unknown
+	VanityURL = 188952590,
 	RangeByHash = 2294888943
 }
 
@@ -47,5 +47,6 @@ type MemberCountFilter = [FilterType.MemberCount, [[number, number | null], [num
 type IDFilter = [FilterType.ID, [[number, string[]]]]
 type HubTypeFilter = [FilterType.HubType, [[number, number[]]]]
 type RangeByHashFilter = [FilterType.RangeByHash, [[number, number], [number, number]]]
+type VanityURLFilter = [FilterType.VanityURL, [[FilterType.VanityURL, boolean]]
 
 export type Filter = FeatureFilter | IDRangeFilter | MemberCountFilter | IDFilter | HubTypeFilter | RangeByHashFilter
