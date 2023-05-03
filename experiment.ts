@@ -46,7 +46,7 @@ type IDRangeFilter = [FilterType.IDRange, [[number, number | null], [number, num
 type MemberCountFilter = [FilterType.MemberCount, [[number, number | null], [number, number]]]
 type IDFilter = [FilterType.ID, [[number, string[]]]]
 type HubTypeFilter = [FilterType.HubType, [[number, number[]]]]
+type VanityURLFilter = [FilterType.VanityURL, [[FilterType.VanityURL, boolean]]]
 type RangeByHashFilter = [FilterType.RangeByHash, [[number, number], [number, number]]]
-type VanityURLFilter = [FilterType.VanityURL, [[FilterType.VanityURL, boolean]]
 
-export type Filter = FeatureFilter | IDRangeFilter | MemberCountFilter | IDFilter | HubTypeFilter | RangeByHashFilter
+export type Filter = FeatureFilter | IDRangeFilter | MemberCountFilter | IDFilter | HubTypeFilter | VanityURLFilter | RangeByHashFilter
