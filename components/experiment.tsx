@@ -39,7 +39,7 @@ export default function Experiment({exp}: {exp: Exp}) {
 		</div>
 		{exp.rollout[5].length ? <>
 			<p style={{fontSize: '.8rem', marginBottom: '.5rem'}}>Overrides Formatted:</p>
-			{exp.rollout[5][0].map((pop, i) => <Population key={i} population={pop} data={exp.data}/>)}
+			{exp.rollout[5].flat().map((pop, i) => <Population key={i} population={pop} data={exp.data}/>)}
 		</> : null}
 		<button onClick={() => swal.fire({
 			title: exp.data.title,
