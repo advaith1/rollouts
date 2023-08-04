@@ -2,20 +2,20 @@
   "name": "rollouts",
   "scripts": {
     "dev": "next dev --turbo",
-    "build": "next build && next export"
+    "build": "next build"
   },
   "dependencies": {
-    "next": "^13.4.2",
+    "next": "^13.4.12",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
-    "sweetalert2": "^11.7.5",
+    "sweetalert2": "^11.7.20",
     "sweetalert2-react-content": "^5.0.7",
-    "swr": "^2.1.5"
+    "swr": "^2.2.0"
   },
   "devDependencies": {
-    "@types/node": "^18.16.12",
-    "@types/react": "^18.2.6",
+    "@types/node": "^18.17.2",
+    "@types/react": "^18.2.18",
     "styled-jsx": "^5.1.2",
-    "typescript": "^5.0.4"
+    "typescript": "^5.1.6"
   }
 }

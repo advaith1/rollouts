@@ -3,7 +3,7 @@ import withReactContent from 'sweetalert2-react-content'
 import { Experiment as Exp, Filter, FilterType, Population } from '../experiment'
 
 const swal = withReactContent(Swal)
-const andList = new Intl.ListFormat()
+const andList = new Intl.ListFormat('en')
 const orList = new Intl.ListFormat('en', { type: 'disjunction' })
 
 const hubTypes = ['Default', 'High School', 'College']
@@ -16,7 +16,7 @@ function Population({ population, data }: { population: Population, data: Exp['d
 			<hr style={{border: 0, height: '1px', background: '#2f3136'}}/>
 		</>}
 		{population[0].map(bucket => <div key={bucket[0]} style={{color: bucket[0] > 0 ? '#46c46e' : '#ed4245'}}>
-			{data.description.find(d => d.startsWith(`Treatment ${bucket[0]}`)) ?? 'None'}:{' '}
+			{data.description.find(d => d.startsWith(`Treatment ${bucket[0]}`)) ?? (bucket[0] === -1 ? 'None' : `Unknown Treatment ${bucket[0]}`)}:{' '}
 			<strong>{(() => {
 				const sum = bucket[1].reduce((total, range) => total + range.e - range.s, 0)
 				popTotal += sum
