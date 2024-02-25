@@ -16,7 +16,10 @@ export interface Experiment {
 			/** bucket */     b: number,
 			/** server IDs */ k: string[]
 		}[],
-		[Population[]] // overrides formatted
+		[Population[]], // overrides formatted
+		string | null, // holdout name
+		number | null, // holdout bucket
+		number, // aa mode
 	]
 }
 

@@ -33,7 +33,7 @@ export default function Experiment({exp}: {exp: Exp}) {
 		<h2 style={{fontSize: '1.5rem', marginTop: '5px', marginBottom: '5px'}}>
 			<a href={`#${exp.data.id}`} className="name-link">{exp.data.title}</a>
 		</h2>
-		<p style={{fontSize: '.9rem'}}>{exp.data.id}</p>
+		<p style={{fontSize: '.9rem'}}>{exp.data.id}{exp.rollout[8] ? ' (aa mode)' : null}</p>
 		<div>
 			{exp.rollout[3].map((pop, i) => <Population key={i} population={pop} data={exp.data}/>)}
 		</div>
@@ -45,6 +45,7 @@ export default function Experiment({exp}: {exp: Exp}) {
 			title: exp.data.title,
 			html: <>
 				<p style={{fontSize: '.9rem'}}>ID: {exp.data.id} ({exp.rollout[0]})</p>
+				{exp.rollout[6] ? <p style={{ fontSize: '.9rem' }}>Holdout: {exp.rollout[6]}, {exp.rollout[7]}</p> : null}
 				{exp.rollout[1] ? <p style={{fontSize: '.9rem'}}>Hash Key: {exp.rollout[1]}</p> : null}
 				<p style={{fontSize: '.9rem'}}>Revision {exp.rollout[2]}</p>
 				{exp.data.buckets.map(b =>
