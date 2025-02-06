@@ -1,21 +1,21 @@
 {
   "name": "rollouts",
   "scripts": {
-    "dev": "next dev --turbo",
+    "dev": "next dev --turbopack",
     "build": "next build"
   },
   "dependencies": {
-    "next": "^13.4.12",
-    "react": "^18.2.0",
-    "react-dom": "^18.2.0",
-    "sweetalert2": "^11.7.20",
-    "sweetalert2-react-content": "^5.0.7",
-    "swr": "^2.2.0"
+    "next": "^15.1.6",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0",
+    "sweetalert2": "^11.15.10",
+    "sweetalert2-react-content": "^5.1.0",
+    "swr": "^2.3.2"
   },
   "devDependencies": {
-    "@types/node": "^18.17.2",
-    "@types/react": "^18.2.18",
-    "styled-jsx": "^5.1.2",
-    "typescript": "^5.1.6"
+    "@types/node": "^22.13.1",
+    "@types/react": "^19.0.8",
+    "styled-jsx": "^5.1.6",
+    "typescript": "^5.7.3"
   }
 }

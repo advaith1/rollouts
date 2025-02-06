@@ -1,6 +1,6 @@
 import Swal from 'sweetalert2'
 import withReactContent from 'sweetalert2-react-content'
-import { Experiment as Exp, Filter, FilterType, Population } from '../experiment'
+import { type Experiment as Exp, Filter, FilterType, type Population } from '../experiment'
 
 const swal = withReactContent(Swal)
 const andList = new Intl.ListFormat('en')
