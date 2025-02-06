@@ -33,7 +33,7 @@ export default function Experiment({exp}: {exp: Exp}) {
 		<h2 style={{fontSize: '1.5rem', marginTop: '5px', marginBottom: '5px'}}>
 			<a href={`#${exp.data.id}`} className="name-link">{exp.data.title}</a>
 		</h2>
-		<p style={{fontSize: '.9rem'}}>{exp.data.id}{exp.rollout[8] ? ' (aa mode)' : null}</p>
+		<p style={{fontSize: '.9rem'}}>{exp.data.id}{exp.rollout[8] ? <> (<strong>Currently inactive</strong> - A/A mode)</> : null}</p>
 		<div>
 			{exp.rollout[3].map((pop, i) => <Population key={i} population={pop} data={exp.data}/>)}
 		</div>
