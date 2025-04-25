@@ -10,10 +10,10 @@ const hubTypes = ['Default', 'High School', 'College']
 
 function Population({ population, data }: { population: Population, data: Exp['data'] }) {
 	let popTotal = 0
-	return <div style={{background: '#202225', padding: '.5rem', marginBottom: '.25rem', borderRadius: '2px'}}>
+	return <div style={{background: '#0a0a0c', padding: '.5rem', marginBottom: '.25rem', borderRadius: '2px'}}>
 		{population[1][0] && <>
 			<p style={{fontSize: '.9rem', margin: 0}}>Filter: {andList.format(population[1].map(f => parseFilter(f)))}</p>
-			<hr style={{border: 0, height: '1px', background: '#2f3136'}}/>
+			<hr style={{border: 0, height: '1px', background: '#121214'}}/>
 		</>}
 		{population[0].map(bucket => <div key={bucket[0]} style={{color: bucket[0] > 0 ? '#46c46e' : '#ed4245'}}>
 			{data.description.find(d => d.startsWith(`Treatment ${bucket[0]}`)) ?? (bucket[0] === -1 ? 'None' : `Unknown Treatment ${bucket[0]}`)}:{' '}
@@ -29,7 +29,7 @@ function Population({ population, data }: { population: Population, data: Exp['d
 }
 
 export default function Experiment({exp}: {exp: Exp}) {
-	return <div style={{background: '#2f3136', marginBottom: '.5rem', textAlign: 'left', width: '800px', padding: '1rem', borderRadius: '3px', maxWidth: '100%'}} key={exp.data.id} id={exp.data.id}>
+	return <div style={{background: '#121214', marginBottom: '.5rem', textAlign: 'left', width: '800px', padding: '1rem', borderRadius: '3px', maxWidth: '100%'}} key={exp.data.id} id={exp.data.id}>
 		<h2 style={{fontSize: '1.5rem', marginTop: '5px', marginBottom: '5px'}}>
 			<a href={`#${exp.data.id}`} className="name-link">{exp.data.title}</a>
 		</h2>
@@ -58,7 +58,7 @@ export default function Experiment({exp}: {exp: Exp}) {
 					</div>
 				)}
 			</>,
-			background: '#2f3136',
+			background: '#121214',
 			width: 600,
 			confirmButtonColor: '#5865f2'
 		})}>Experiment Details</button>

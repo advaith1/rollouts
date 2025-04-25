@@ -89,7 +89,7 @@ export default function Home() {
 					font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto,
 						Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue,
 						sans-serif;
-					background: #36393f;
+					background: #1a1a1e;
 					color: white;
 					scroll-behavior: smooth;
 				}
