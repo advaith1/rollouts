@@ -16,7 +16,7 @@ function Population({ population, data }: { population: Population, data: Exp['d
 			<hr style={{border: 0, height: '1px', background: '#121214'}}/>
 		</>}
 		{population[0].map(bucket => <div key={bucket[0]} style={{color: bucket[0] > 0 ? '#46c46e' : '#ed4245'}}>
-			{data.description.find(d => d.startsWith(`Treatment ${bucket[0]}`)) ?? (bucket[0] === -1 ? 'None' : `Unknown Treatment ${bucket[0]}`)}:{' '}
+			{data.description.find(d => d.startsWith(`Treatment ${bucket[0]}`)) ?? (bucket[0] === -1 ? 'None' : bucket[0] === 0 ? data.description[0] : `Unknown Treatment ${bucket[0]}`)}:{' '}
 			<strong>{(() => {
 				const sum = bucket[1].reduce((total, range) => total + range.e - range.s, 0)
 				popTotal += sum
